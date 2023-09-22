@@ -8,6 +8,7 @@ The program processes a text file of lines each representing a sequence of piece
 For each line of the input file, your program should output the resulting height of the remaining blocks within the grid.
 The file denotes the different possible shapes by letter. The letters used are Q, Z, S, T, I, L, and J, which are mapped to
 positions (with upper-left corner being (0, 0) in each case).
+
 ```py
 piece_position_map = {
     "Q": [[0, 0], [1, 0], [1, -1], [0, -1]],
@@ -19,23 +20,26 @@ piece_position_map = {
     "J": [[1, 0], [1, -1], [1, -2], [0, -2]],
 }
 ```
+
 The board is refreshed and returned to original size after each line.
 
 A typical input file will be:
+
 ```
 Q0
 Q0,Q1
 Q0,Q2,Q4,Q6,Q8
 ...
 ```
+
 And outputs:
+
 ```
 2
 4
 0
 ...
 ```
-
 
 ## Examples
 
@@ -46,6 +50,7 @@ And outputs:
 
 ## Testing
 To test:
+
 ```shell
 chmod +x run_tests
 ./run_tests
@@ -53,6 +58,7 @@ chmod +x run_tests
 
 ## Use:
 To output:
+
 ```shell
 chmod +x tetris
 ./tetris < input.txt > output.txt
