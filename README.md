@@ -1,4 +1,16 @@
-# tetris
-A simple implementation of tetris
+# Tetris
+A simple implementation of tetris.
 
-## tests
+## Testing
+To run tests:
+```shell
+chmod +x run_tests
+./run_tests
+```
+
+## Use:
+To produce outputs:
+```shell
+chmod +x tetris
+./tetris < input.txt > output.txt
+```
