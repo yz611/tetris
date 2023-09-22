@@ -10,6 +10,41 @@ class TestTetris(TestCase):
     def tearDown(self) -> None:
         self.board.clear()
 
+    def test_Q0(self):
+        command = "Q0"
+        self.board.put_piece(command[0], command[1])
+        self.assertEqual(self.board.max_height, 2)
+
+    def test_Z0(self):
+        command = "Z0"
+        self.board.put_piece(command[0], command[1])
+        self.assertEqual(self.board.max_height, 2)
+
+    def test_S0(self):
+        command = "S0"
+        self.board.put_piece(command[0], command[1])
+        self.assertEqual(self.board.max_height, 2)
+
+    def test_T0(self):
+        command = "S0"
+        self.board.put_piece(command[0], command[1])
+        self.assertEqual(self.board.max_height, 2)
+
+    def test_I0(self):
+        command = "I0"
+        self.board.put_piece(command[0], command[1])
+        self.assertEqual(self.board.max_height, 1)
+
+    def test_L0(self):
+        command = "L0"
+        self.board.put_piece(command[0], command[1])
+        self.assertEqual(self.board.max_height, 3)
+
+    def test_J0(self):
+        command = "J0"
+        self.board.put_piece(command[0], command[1])
+        self.assertEqual(self.board.max_height, 3)
+
     def test_over_height(self):
         for command in ["Q0"] * 52:
             self.board.put_piece(command[0], command[1])
@@ -19,11 +54,6 @@ class TestTetris(TestCase):
         command = "L9"
         with self.assertRaises(IndexError):
             self.board.put_piece(command[0], command[1])
-
-    def test_Q0(self):
-        command = "Q0"
-        self.board.put_piece(command[0], command[1])
-        self.assertEqual(self.board.max_height, 2)
 
     def test_I0_I4_Q8(self):
         row = "I0,I4,Q8"

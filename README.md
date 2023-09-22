@@ -19,6 +19,23 @@ piece_position_map = {
     "J": [[1, 0], [1, -1], [1, -2], [0, -2]],
 }
 ```
+The board is refreshed and returned to original size after each line.
+
+A typical input file will be:
+```
+Q0
+Q0,Q1
+Q0,Q2,Q4,Q6,Q8
+...
+```
+And outputs:
+```
+2
+4
+0
+...
+```
+
 
 ## Examples
 
