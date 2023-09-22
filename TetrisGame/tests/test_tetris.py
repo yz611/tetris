@@ -1,11 +1,12 @@
 from unittest import TestCase
-from Tetris.__main__ import Board
+from TetrisGame.__main__ import Board
 
 
 class TestTetris(TestCase):
 
-    def setUp(self) -> None:
-        self.board = Board()
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.board = Board()
 
     def test_Q0(self):
         command = "Q0"
@@ -32,3 +33,8 @@ class TestTetris(TestCase):
         for command in row.split(","):
             self.board.put_piece(command[0], command[1])
         self.assertEqual(self.board.max_height, 3)
+
+    def test_over_height(self):
+        for command in ["Q0"]*52:
+            self.board.put_piece(command[0], command[1])
+        self.assertEqual(self.board.max_height, 104)
