@@ -5,7 +5,7 @@ BOARD_WIDTH = 10
 BOARD_HEIGHT = 100
 
 
-piece_position_map = {
+shape_position_map = {
     "Q": [[0, 0], [1, 0], [1, -1], [0, -1]],
     "Z": [[0, 0], [1, 0], [1, -1], [2, -1]],
     "S": [[2, 0], [1, 0], [1, -1], [0, -1]],
@@ -46,9 +46,9 @@ class Board:
         self._board = [[0 for _ in range(self._width)] for _ in range(self._height)]
         self.max_width_map = [0 for _ in range(self._height)]
 
-    def put_piece(self, piece: str, start_col: str):
-        """put a piece at the correct location"""
-        positions = deepcopy(piece_position_map[piece])
+    def put_shape(self, shape: str, start_col: str):
+        """put a shape at the correct location"""
+        positions = deepcopy(shape_position_map[shape])
         start_col = int(start_col)
         for pos in positions:  # set start positions at top
             pos[0] += start_col
@@ -57,9 +57,9 @@ class Board:
         if not self.valid(positions):
             self.expand_board()
             for pos in positions:
-                pos[1] += 4  # pieces have height <= 4
+                pos[1] += 4  # shapes have height <= 4
 
-        while self.valid(positions):  # piece falls from top until collision
+        while self.valid(positions):  # shape falls from top until collision
             for pos in positions:
                 pos[1] -= 1
 

@@ -8,6 +8,6 @@ for row in sys.stdin:
     commands = row.strip().split(",")
     for command in commands:
         command = command.strip()
-        board.put_piece(command[0], command[1])
+        board.put_shape(command[0], command[1])
     print(board.max_height)
     board.clear()

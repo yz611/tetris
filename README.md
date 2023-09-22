@@ -10,7 +10,7 @@ The file denotes the different possible shapes by letter. The letters used are Q
 positions (with upper-left corner being (0, 0) in each case).
 
 ```py
-piece_position_map = {
+shape_position_map = {
     "Q": [[0, 0], [1, 0], [1, -1], [0, -1]],
     "Z": [[0, 0], [1, 0], [1, -1], [2, -1]],
     "S": [[2, 0], [1, 0], [1, -1], [0, -1]],
