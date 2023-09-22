@@ -3,10 +3,11 @@ import sys
 
 from TetrisGame import Board
 
-board = Board()
+board = Board(height=10)
 for row in sys.stdin:
     commands = row.strip().split(",")
     for command in commands:
+        command.strip()
         board.put_piece(command[0], command[1])
     print(board.max_height)
     board.clear()

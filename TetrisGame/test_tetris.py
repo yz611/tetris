@@ -37,3 +37,21 @@ class TestTetris(TestCase):
         for command in ["Q0"] * 52:
             self.board.put_piece(command[0], command[1])
         self.assertEqual(self.board.max_height, 104)
+
+    def test_I0_I6_S4(self):
+        row = "I0,I6,S4"
+        for command in row.split(","):
+            self.board.put_piece(command[0], command[1])
+        self.assertEqual(self.board.max_height, 1)
+
+    def test_S0_S2_S4_S5_Q8_Q8_Q8_Q8_T1_Q1_I0_Q4(self):
+        row = "S0,S2,S4,S5,Q8,Q8,Q8,Q8,T1,Q1,I0,Q4"
+        for command in row.split(","):
+            self.board.put_piece(command[0], command[1])
+        self.assertEqual(self.board.max_height, 8)
+
+    def test_L0_J3_L5_J8_T1_T6_S2_Z5_T0_T7(self):
+        row = "L0,J3,L5,J8,T1,T6,S2,Z5,T0,T7"
+        for command in row.split(","):
+            self.board.put_piece(command[0], command[1])
+        self.assertEqual(self.board.max_height, 0)
