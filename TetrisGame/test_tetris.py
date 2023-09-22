@@ -5,7 +5,7 @@ from TetrisGame.board import Board
 class TestTetris(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.board = Board()
+        cls.board = Board(height=10)
 
     def tearDown(self) -> None:
         self.board.clear()
