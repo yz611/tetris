@@ -41,7 +41,7 @@ class Board:
         return True
 
     def clear(self):
-        """clear the board to init state"""
+        """return the board to its initial state"""
         self._height = self.start_height
         self._board = [[0 for _ in range(self._width)] for _ in range(self._height)]
         self.max_width_map = [0 for _ in range(self._height)]
@@ -55,12 +55,7 @@ class Board:
             pos[1] += self._height - 1
 
         if not self.valid(positions):
-            for _ in range(self._height):
-                self._board.append([0 for _ in range(self._width)])
-                self.max_width_map.append(0)
-            self._height *= (
-                2  # double the height of matrix if initial positions invalid
-            )
+            self.expand_board()
             for pos in positions:
                 pos[1] += 4  # pieces have height <= 4
 
@@ -76,6 +71,13 @@ class Board:
             self.max_width_map[row] += 1
             if self.max_width_map[row] == self._width:
                 self.remove_row_and_update_width_map(row)
+
+    def expand_board(self):
+        """double the height of the board."""
+        for _ in range(self._height):
+            self._board.append([0] * self._width)
+            self.max_width_map.append(0)
+        self._height *= 2
 
     def remove_row_and_update_width_map(self, idx: int):
         del self._board[idx]
