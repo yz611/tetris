@@ -3,7 +3,7 @@ import sys
 
 from TetrisGame import Board
 
-board = Board(height=10)
+board = Board()
 for row in sys.stdin:
     commands = row.strip().split(",")
     for command in commands:
