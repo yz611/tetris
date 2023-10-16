@@ -1,2 +1,2 @@
-from TetrisGame.board import Board
-from TetrisGame.test_tetris import TestTetris
+from .board import Board
+from .test_tetris import TestTetris
